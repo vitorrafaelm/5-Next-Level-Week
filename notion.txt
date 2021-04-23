@@ -1,0 +1,88 @@
+//Vamos consumir uma Fake API na nossa aplicação; Vamos gerar a 
+home page estática. Vamos gerar um build e executar esse build; 
+
+## Por que usar o typescript? 
+    - Adiciona inteligência ao editor de código, com isso, podemos
+    saber quais dados são passados por parametro para uma função. 
+    - O typescript ajuda na manutenção do código; 
+    - Qual a diferença entre type e interface no typescript; 
+
+##Configurando typescript no Next. 
+    - yarn add typescript @types/react @types/node -D
+    - Depois basta usar com a extensão tsx normalmente. 
+    - O next cria automaticamente um arquivo tsconfig.json; 
+
+##Sass. 
+    - Ajuda a escrever css de uma forma diferente e a escrever css
+    de forma diferente; 
+    - yarn add sass
+    - O arquivo _app.tsx fica por volta de todas as páginas; 
+    - O next tem um sistema de rotas próprias; 
+
+## Adicionando fonts
+    - É necessário adicionar as font em uma arquivo _document 
+    que vai ficar em volta do _app, mas ele só é carregado uma 
+    única vez. 
+
+##Styles
+    - Dentro do next usamos o css modules para fazer estilizações
+    - conseguimos criar arquivos css que são especificos de um componete; 
+
+
+##public
+    - Todos os arquivos da pasta public ficam visíveis em toda a aplicação; 
+
+##A lib date-fns 
+    - É uma lib que é usada para lidar com fontes; 
+
+##JsonServer
+    - Lib usada para simular uma fake-api; 
+    - "server": "json-server server.json -w -d 750 -p 3333" - comando nos scripts 
+    do package.json para rodar yarn server e rodar a fake-api na porta 3333
+
+##Consumindo api no next; 
+    - SPA -> Usar o useEffect para fazer chamada a api, pode
+    ser com fetch api ou com axios; Os dados são carregados somente 
+    quando o usuário acessa a página. 
+    - SSR -> exportar a função em qualquer componente: 
+        export function getStaticProps() {
+            //Requisição
+
+            return {
+                props: {
+                    episodes: data, 
+                }, 
+                //Recebe um número em milesecundos de quanto em quanto tempo a página 
+                //vai ser reatualizada; 
+                revalidate: 60 * 60 * 8
+            }
+        }
+
+    - SSG
+
+##build
+    - Ao final do build o Next mostra as páginas que foram geradas de forma estática
+    ou não; 
+    - yarn build -> gera o build do projeto; 
+    - yarn start -> roda o projeto da mesma forma que ele roda em produção; 
+    - yarn dev roda o projeto como em homologação/development; 
+
+##Formatação dos dados
+    - Sempre que vamos lidar com informações vindas do back-end é necessário formatar
+    os dados para serem exibidos de uma determinada forma no front-end. 
+    - Não devemos fazer essas formatações dentro do return do jsx. 
+    - Quando precisar fazer a formatação é legal fazer antes do return. É legal fazer 
+    formatação logo depois da requisição; 
+    - Criar objeto com as informações formatas e retornar; 
+
+##Image componente do Next
+    - Serve para renderizar imagens de forma optimizada; 
+    - <Image width={192} height={192} src={episode.thumbnail} alt={episode.title}/>
+    - import Image from 'next/image'; 
+    - Tem que criar o arquivo next.config.js e passar o dominio onde as imagens estão 
+    hospedadas. 
+
+##Roteamento no Next
+    - Dentro da pasta pages o Next faz um roteamento automático a partir dos nomes 
+    dos arquivos; 
+    
