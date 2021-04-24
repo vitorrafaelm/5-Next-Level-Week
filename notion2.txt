@@ -1,0 +1,15 @@
+//Aprender sobre a context-api do react - Serve para compartilhamento de informações
+dentro de componentes; 
+    - Toda as rotas que são dinâmicas é necessário usar a função getStaticPaths; 
+    - Quando rodamos o yarn next-build p next gera páginas estáticas e para isso 
+    precisa do método getStaticProps; 
+    - getStaticPaths retorna os episódios que serão gerados no momento da build; 
+    - fallback: 'blocking' - roda a requisição para buscar dados no servidor node
+    do Next; 
+    - fallback: true -> tenta buscar os dados para criar uma página de forma es-
+    tática. 
+
+//A context-api permite compartilhar dados entre componentes da nossa aplicação; 
+
+//Para fazer o slider indicando como a música está tocando é usado um lib do react: 
+    - yarn add rc-slider
